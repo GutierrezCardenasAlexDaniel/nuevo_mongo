@@ -1,0 +1,61 @@
+
+ <%- include('partials/_header') %>
+ <!----formulario 1-->
+ 
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<center><h3>REGISTRO</h3></center>
+				<div class="d-flex justify-content-end social_icon">
+					<span><i class="fab fa-facebook-square"></i></span>
+					<span><i class="fab fa-google-plus-square"></i></span>
+					<span><i class="fab fa-twitter-square"></i></span>
+				</div>
+			</div>
+			<div class="card-body">
+				<form class="text-center" action="/edit/<%= task._id%>" method="POST">
+                    <h1 class="font-bold tracking-wider text-3xl mb-8 w-full text-gray-600">
+                        EDITE SUS DATOS E INSERTE LOS CORRECTOS
+                    </h1>
+                    <div class="py-2 ">
+                        <input type="text" name="title" class="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " placeholder="NUEVO NOMBRE"
+                        value="<%= task.title%>" />
+                    </div>
+                    <div class="py-2 ">
+                        <input type="email" name="email" class="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " placeholder="NUEVO EMAIL"
+                        value="<%= task.email%>" />
+                    </div>
+                    <div class="py-2">
+                        <input type="text" name="monto" class="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " placeholder="NUEVO MONTO"
+                        value="<%= task.monto%>" />                  
+                    </div>
+                    <div class="py-2">
+                        <input type="int" name="carrera" class="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " placeholder="NUEVa CARRERA"
+                        value="<%= task.carrera%>" />                       
+                    </div>
+                    <div class="py-2">
+                        <input type="text" name="grupo" class="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " placeholder="NUEVO GRUPO"
+                        value="<%= task.grupo%>" />                      
+                    </div>
+                    <div class="py-2">
+                        <input type="int" name="telefono" class="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " placeholder="NUEVO TELEFONO"
+                        value="<%= task.telefono%>" />                      
+                    </div>
+                    <div class="py-2">
+                        <input type="desciption" name="description" class="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " placeholder="NUEVO COMENTARIO"
+                        value="<%= task.description%>" />                     
+                    </div>
+                    <div class="py-2">
+                        <button type="submit" class="border-2 border-skyblue-100 focus:outline-none bg-purple-600 text-white font-bold tracking-wider block w-full p-2 rounded-lg focus:border-red-700 hover:bg-purple-700">
+                            <p>REGISTRAR NUEVOS DATOS</p>
+                        </button>
+                    </div>
+                </form>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<%- include('partials/_footer') %>

@@ -1,0 +1,96 @@
+<%- include('partials/_header') %>
+
+<!---fomrulario 1-->
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<center><h3>REGISTRO</h3></center>
+				<div class="d-flex justify-content-end social_icon">
+					<span><i class="fab fa-facebook-square"></i></span>
+					<span><i class="fab fa-google-plus-square"></i></span>
+					<span><i class="fab fa-twitter-square"></i></span>
+				</div>
+			</div>
+			<div class="card-body">
+				<form class="text-center" action="/add" method="POST">
+                    <h1 class="font-bold tracking-wider text-3xl mb-8 w-full text-gray-600">
+                        INGRESE SUS DATOS!!!
+                    </h1>
+                    <div class="py-2 text-left">
+                        <input type="text" name="title" class="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " placeholder="INSERTE EL NOMBRE" />
+                    </div>
+                    <div class="py-2 text-left">
+                        <input type="email" name="email" class="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " placeholder="INSERTE EL EMAIL" />
+                    </div>
+                    <div class="py-2 text-left">
+                        <input type="int" name="monto" class="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " placeholder="MONTO" />
+                    </div>
+                    <div class="py-2 text-left">
+                        <input type="text" name="carrera" class="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " placeholder="CARRERA PERTENECE" />
+                    </div>
+                    <div class="py-2 text-left">
+                        <input type="int" name="grupo" class="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " placeholder="INGRESE EL GRUPO"/>
+                    </div>
+                    <div class="py-2 text-left">
+                        <input type="int" name="telefono" class="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " placeholder="INGRESE EL TELEFONO"/>
+                    </div>
+                    <div class="py-2 text-left">
+                        <input type="text" name="description" cols="80" class="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " placeholder="OBSERVACION"/>
+                    </div>
+                    <div class="py-2">
+                        <button type="submit" class="border-2 border-skyblue-100 focus:outline-none bg-purple-600 text-white font-bold tracking-wider block w-full p-2 rounded-lg focus:border-red-700 hover:bg-purple-700">
+                            <p>REGISTRAR</p>
+                        </button>
+                    </div>
+                </form>
+			</div>
+			
+		</div>
+	</div>
+</div>
+<hr>
+<!----lista de datos-->
+<div class="container1">
+	<div class="d-flex justify-content-center h-100 w-full">
+            <div class="col-md-18">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>N°</th>
+                            <th>NOMBRE</th>
+                            <th>EMAIL</th>
+                            <th>MONTO</th>
+                            <th>CARRERA</th>
+                            <th>GRUPO</th>
+                            <th>TELEFONO</th>
+                            <th>OBSERVACION</th>
+                            <th>Operationes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0;i<tasks.length;i++) { %>
+                            <tr>
+                                <td><%= i+1 %></td>
+                                <td><%= tasks[i].title %></td>
+                                <td><%= tasks[i].email %></td>
+                                <td><%= tasks[i].monto %></td>
+                                <td><%= tasks[i].carrera %></td>
+                                <td><%= tasks[i].grupo %></td>
+                                <td><%= tasks[i].telefono %></td>
+                                <td><%= tasks[i].description %></td>
+                                <td>
+                                    <a href="/turn/<%= tasks[i]._id %>" 
+                                        class="btn <%= tasks[i].status ? 'btn-success' : 'btn-dark'%>">done</a>
+                                    <a href="/delete/<%= tasks[i]._id %>" class="btn btn-danger">delete</a>
+                                    <a href="/edit/<%= tasks[i]._id %>" class="btn btn-info">edit</a>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+           
+<%- include('partials/_footer') %>
